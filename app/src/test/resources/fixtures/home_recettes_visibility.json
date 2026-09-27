@@ -1,0 +1,18 @@
+{
+  "_comment": "Fixture synthétique pour la portée d'affichage et la variante de rail. Chaque bloc éprouve un cas du contrat `visibility` / `variant` : voir HomeDecodingTest. Les `recipe_ids` sont ceux de la capture réelle, l'hydratation n'étant pas l'objet de ce fichier.",
+  "page_id": 13136894,
+  "blocks": [
+    { "type": "rail", "title": "Champ absent", "recipe_ids": [13400072] },
+    { "type": "rail", "title": "Explicitement web_app", "visibility": "web_app", "recipe_ids": [13400023] },
+    { "type": "rail", "title": "Réservé au site", "visibility": "web_only", "recipe_ids": [13400019] },
+    { "type": "rail", "title": "Réservé à l'app", "visibility": "app_only", "recipe_ids": [13400018] },
+    { "type": "rail", "title": "Valeur inconnue", "visibility": "web_only_v2", "recipe_ids": [13400015] },
+    { "type": "rail", "title": "Visibility numérique", "visibility": 42, "recipe_ids": [13400016] },
+    { "type": "rail", "title": "Visibility objet", "visibility": { "scope": "web_only" }, "recipe_ids": [13400017] },
+    { "type": "rail", "title": "Visibility tableau", "visibility": ["web_only"], "recipe_ids": [13400013] },
+    { "type": "rail", "title": "Visibility nulle", "visibility": null, "recipe_ids": [13400014] },
+    { "type": "rail", "title": "Carrousel", "variant": "slider", "recipe_ids": [13400012] },
+    { "type": "rail", "title": "Variante inconnue", "variant": "mosaic_v2", "recipe_ids": [13400011] },
+    { "type": "rail", "title": "Variante numérique", "variant": 7, "recipe_ids": [13400010] }
+  ]
+}

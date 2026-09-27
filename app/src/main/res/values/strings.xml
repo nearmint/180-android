@@ -1,0 +1,7 @@
+<resources>
+    <!--
+       Nom affiché sous l'icône et dans le sélecteur d'apps.
+       « 180c » était le nom technique du module, pas celui de la marque.
+    -->
+    <string name="app_name">180°C</string>
+</resources>

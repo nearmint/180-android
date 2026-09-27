@@ -1,0 +1,53 @@
+# macOS
+.DS_Store
+
+# Android Studio / Gradle
+*.iml
+.gradle/
+local.properties
+.idea/
+build/
+captures/
+.externalNativeBuild
+.cxx
+release/
+.kotlin/
+
+# Compiled
+*.apk
+*.aab
+*.ap_
+*.dex
+*.class
+
+# Java
+hs_err_pid*
+
+# Generated files
+bin/
+gen/
+out/
+
+# Keystore et secrets de signature
+# Le keystore d'upload vit hors du dépôt, dans un dossier android-secrets/ privé.
+# Ces trois lignes sont un garde-fou : elles bloquent aussi une copie
+# égarée à l'intérieur du dépôt.
+*.jks
+*.keystore
+android-secrets/
+
+# Secrets
+google-services.json
+**/google-services.json
+180/GoogleService-Info.plist
+*.env
+.env*
+
+# Claude Code — contexte privé et réglages locaux
+CLAUDE.local.md
+.claude/settings.local.json
+
+# Misc
+proguard/
+*.log
+*.tmp

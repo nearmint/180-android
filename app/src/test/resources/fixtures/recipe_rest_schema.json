@@ -1,0 +1,110 @@
+{
+  "recipe_category": {
+    "description": "Les termes assignés à la publication dans la taxonomie recipe_category.",
+    "type": "array",
+    "items": {
+      "type": "integer"
+    },
+    "required": false
+  },
+  "recipe_season": {
+    "description": "Les termes assignés à la publication dans la taxonomie recipe_season.",
+    "type": "array",
+    "items": {
+      "type": "integer"
+    },
+    "required": false
+  },
+  "recipe_publication": {
+    "description": "Les termes assignés à la publication dans la taxonomie recipe_publication.",
+    "type": "array",
+    "items": {
+      "type": "integer"
+    },
+    "required": false
+  },
+  "recipe_tag": {
+    "description": "Les termes assignés à la publication dans la taxonomie recipe_tag.",
+    "type": "array",
+    "items": {
+      "type": "integer"
+    },
+    "required": false
+  },
+  "recipe_intro": {
+    "description": "Introduction éditoriale de la recette.",
+    "type": "string",
+    "required": false
+  },
+  "servings": {
+    "description": "Nombre de portions.",
+    "type": [
+      "integer",
+      "null"
+    ],
+    "required": false
+  },
+  "servings_unit": {
+    "description": "Unité associée au nombre de portions (ex. « personnes »).",
+    "type": "string",
+    "required": false
+  },
+  "recipe_is_premium": {
+    "description": "Drapeau éditorial « recette premium ». Le paywall front reste piloté par class_list.",
+    "type": "boolean",
+    "required": false
+  },
+  "recipe_locked": {
+    "description": "Vrai si le contenu premium est masqué pour l'utilisateur courant (paywall serveur).",
+    "type": "boolean",
+    "required": false
+  },
+  "ingredients_groups": {
+    "description": "Groupes d'ingrédients, chacun avec un libellé optionnel et des lignes brutes.",
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "group_label": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "line": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "required": false
+  },
+  "steps": {
+    "description": "Étapes de préparation (titre optionnel + contenu HTML).",
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "step_title": {
+          "type": "string"
+        },
+        "step_content": {
+          "type": "string"
+        }
+      }
+    },
+    "required": false
+  },
+  "source_issue": {
+    "description": "ID du produit WooCommerce (numéro papier) dont la recette est issue.",
+    "type": [
+      "integer",
+      "null"
+    ],
+    "required": false
+  }
+}

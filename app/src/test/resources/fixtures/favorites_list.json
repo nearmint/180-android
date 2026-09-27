@@ -1,0 +1,5 @@
+{
+  "_comment": "Fixture DÉRIVÉE du décodage Swift (apple/180/Models.swift:229-232 + APIService.swift:187-193), PAS capturée : GET /180c/v1/favorites exige un JWT et les appels authentifiés sont interdits par le brief.",
+  "ids": [13400072, 13400023, 13400019],
+  "count": 3
+}

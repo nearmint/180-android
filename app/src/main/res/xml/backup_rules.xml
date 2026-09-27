@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   Règles de sauvegarde automatique — appareils sous API 31.
+   Au-delà, c'est `data_extraction_rules.xml` qui fait foi.
+
+   Sans `<include>`, tout est sauvegardé par défaut : seuls les fichiers listés
+   ici sont écartés.
+
+   Pourquoi écarter le stockage du jeton :
+     1. Sécurité — un JWT ne doit pas voyager vers un autre appareil par une
+        sauvegarde cloud. L'iOS pose la même contrainte au niveau du Keychain,
+        avec `kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly`
+        (`apple/180/AuthService.swift:480`) : « ThisDeviceOnly » exclut l'entrée
+        des sauvegardes iCloud comme du transfert d'appareil.
+     2. Robustesse — `app180_keychain` est chiffré par une clé du Keystore
+        matériel, propre à l'appareil et jamais sauvegardée. Restaurer le fichier
+        ailleurs produirait un contenu indéchiffrable.
+-->
+<full-backup-content>
+    <!-- JWT chiffré (`data/auth/KeychainHelper.kt:15`). -->
+    <exclude domain="sharedpref" path="app180_keychain.xml" />
+    <!-- Ancien stockage en clair, encore lu à la migration (`KeychainHelper.kt:19`). -->
+    <exclude domain="sharedpref" path="app180_auth_legacy.xml" />
+    <!-- Identité affichée : e-mail, nom, prénom (`data/auth/AuthService.kt:32-35`). -->
+    <exclude domain="sharedpref" path="app180_auth.xml" />
+    <!--
+       Carnet hors ligne (`data/offline/OfflineStore.kt`). Écarté pour deux
+       raisons : le contenu est intégralement re-téléchargeable, et il peut peser
+       plusieurs dizaines de Mo — la sauvegarde automatique est plafonnée, y
+       laisser passer des fiches ferait évincer des données qui, elles, ne se
+       reconstruisent pas. L'iOS pose la même exclusion, par attribut d'inode
+       (`apple/180/OfflineStore.swift`, `isExcludedFromBackup`).
+    -->
+    <exclude domain="file" path="offline_recipes" />
+</full-backup-content>

@@ -1,0 +1,147 @@
+{
+  "_comment": "Fixture RÉELLE capturée en GET anonyme sur https://www.180c.fr/wp-json/180c/v1/home-recettes (LOT-08, Phase 0). Le bloc `carnet` apparaît bien en anonyme mais sans données : son rail est hydraté côté app depuis FavoritesManager.",
+  "page_id": 13136894,
+  "blocks": [
+    {
+      "type": "featured",
+      "anchor": null,
+      "title": "",
+      "recipe_ids": [
+        13400072
+      ]
+    },
+    {
+      "type": "search",
+      "anchor": null,
+      "title": "Trouvez une recette",
+      "placeholder": "Rechercher une recette..."
+    },
+    {
+      "type": "category_tiles",
+      "anchor": null,
+      "title": "Explorez les recettes",
+      "taxonomy": "recipe_category",
+      "terms": [
+        {
+          "slug": "plat",
+          "name": "Plat",
+          "url": "https://www.180c.fr/categorie-recette/plat/",
+          "count": 681
+        },
+        {
+          "slug": "dessert",
+          "name": "Dessert",
+          "url": "https://www.180c.fr/categorie-recette/dessert/",
+          "count": 439
+        },
+        {
+          "slug": "entree",
+          "name": "Entrée",
+          "url": "https://www.180c.fr/categorie-recette/entree/",
+          "count": 424
+        },
+        {
+          "slug": "accompagnement",
+          "name": "Accompagnement",
+          "url": "https://www.180c.fr/categorie-recette/accompagnement/",
+          "count": 143
+        },
+        {
+          "slug": "apero",
+          "name": "Apéro",
+          "url": "https://www.180c.fr/categorie-recette/apero/",
+          "count": 100
+        },
+        {
+          "slug": "petit-dejeuner",
+          "name": "Petit-déjeuner",
+          "url": "https://www.180c.fr/categorie-recette/petit-dejeuner/",
+          "count": 8
+        },
+        {
+          "slug": "boisson",
+          "name": "Boisson",
+          "url": "https://www.180c.fr/categorie-recette/boisson/",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "type": "rail",
+      "anchor": null,
+      "title": "Dernières recettes publiées",
+      "source": "recent",
+      "taxonomy": null,
+      "term_slug": null,
+      "count": 8,
+      "view_all_url": "https://www.180c.fr/recettes/",
+      "recipe_ids": [
+        13400072,
+        13400023,
+        13400019,
+        13400018,
+        13400015,
+        13400016,
+        13400017,
+        13400013
+      ]
+    },
+    {
+      "type": "category_tiles",
+      "anchor": null,
+      "title": "Recettes 100% de saison",
+      "taxonomy": "recipe_season",
+      "terms": [
+        {
+          "slug": "ete",
+          "name": "Été",
+          "url": "https://www.180c.fr/saison/ete/",
+          "count": 665
+        },
+        {
+          "slug": "hiver",
+          "name": "Hiver",
+          "url": "https://www.180c.fr/saison/hiver/",
+          "count": 648
+        },
+        {
+          "slug": "automne",
+          "name": "Automne",
+          "url": "https://www.180c.fr/saison/automne/",
+          "count": 582
+        },
+        {
+          "slug": "printemps",
+          "name": "Printemps",
+          "url": "https://www.180c.fr/saison/printemps/",
+          "count": 559
+        },
+        {
+          "slug": "toute-saison",
+          "name": "Toute saison",
+          "url": "https://www.180c.fr/saison/toute-saison/",
+          "count": 143
+        }
+      ]
+    },
+    {
+      "type": "carnet",
+      "anchor": null,
+      "title": ""
+    },
+    {
+      "type": "cta_subscribe",
+      "anchor": null,
+      "title": "Abonnement digital 100% bien manger",
+      "body": "L’Abonnement digital 100% bien manger, c’est une offre 2 en 1 vous permettant de recevoir chaque vendredi notre newsletter recette Les Cahiers de Delphine, et de bénéficier également d’un accès intégral à nos Recettes en ligne.",
+      "cta_text": "S'abonner",
+      "cta_url": "https://www.180c.fr/abonnement",
+      "login_url": "https://www.180c.fr/mon-compte/?redirect_to=https%3A%2F%2Fwww.180c.fr%2Frecettes%2F"
+    },
+    {
+      "type": "grid_paginated",
+      "anchor": null,
+      "title": "Toutes les recettes"
+    }
+  ]
+}

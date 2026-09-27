@@ -1,0 +1,78 @@
+# Intégration continue : compile, lint et teste chaque branche de travail.
+# Ne signe rien et ne publie rien — la piste Play est le seul territoire du
+# workflow Release (.github/workflows/release.yml).
+name: CI
+
+on:
+  push:
+    branches:
+      - 'feat/**'
+      - 'fix/**'
+      - 'chore/**'
+  pull_request:
+    branches:
+      - main
+
+# Une PR qui reçoit trois pushes d'affilée n'occupe qu'un runner : les deux
+# premiers runs sont annulés dès qu'un plus récent démarre.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Lint, tests unitaires, APK debug
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      # Le plugin com.google.gms.google-services fait échouer le build si le
+      # fichier manque — c'est volontaire (cf. app/google-services.sample.json).
+      # Il est gitignoré : le runner le reconstitue depuis le secret.
+      - name: Restaurer google-services.json
+        env:
+          GOOGLE_SERVICES_JSON_BASE64: ${{ secrets.GOOGLE_SERVICES_JSON_BASE64 }}
+        run: |
+          if [ -z "$GOOGLE_SERVICES_JSON_BASE64" ]; then
+            echo "::error::Secret GOOGLE_SERVICES_JSON_BASE64 absent. Voir la section Release du README."
+            exit 1
+          fi
+          echo "$GOOGLE_SERVICES_JSON_BASE64" | base64 -d > app/google-services.json
+
+      - name: Lint, tests unitaires et APK debug
+        run: ./gradlew lint testDebugUnitTest assembleDebug
+
+      - name: Artifact — APK debug
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-debug-${{ github.run_number }}
+          path: app/build/outputs/apk/debug/app-debug.apk
+          retention-days: 7
+          if-no-files-found: error
+
+      # Sans ça, un échec de lint ou de test n'expose que la sortie console :
+      # les rapports HTML/XML sont bien plus lisibles pour diagnostiquer.
+      - name: Artifact — rapports (si échec)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rapports-${{ github.run_number }}
+          path: |
+            app/build/reports/
+            app/build/test-results/
+          retention-days: 7
+          if-no-files-found: ignore

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--
+       Variante sombre. Un `<style>` qualifié **remplace** entièrement celui de
+       `values/` : les items communs sont donc répétés, seuls le parent et la
+       luminosité des icônes de statut changent. `@color/window_background`
+       résout déjà vers la teinte sombre via `values-night/colors.xml`.
+    -->
+    <style name="Theme._180c" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/window_background</item>
+        <item name="android:statusBarColor">@color/window_background</item>
+        <!-- Icônes de statut claires sur fond sombre. -->
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>

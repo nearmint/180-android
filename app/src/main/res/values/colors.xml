@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--
+       Une seule couleur XML : le fond de la fenêtre de lancement, avant que
+       Compose ne prenne la main (voir `values/themes.xml`). Toutes les autres
+       couleurs de l'app vivent dans `ui/theme/Color.kt` — une palette dupliquée
+       en XML finirait par diverger de celle qui est réellement dessinée.
+
+       Les couleurs `purple_*` / `teal_*` du gabarit Android Studio ont été
+       retirées : aucune référence dans le code ni dans les ressources.
+    -->
+    <color name="window_background">#FFFFFF</color>
+</resources>

@@ -1,0 +1,6 @@
+{
+  "_comment": "Fixture DÉRIVÉE du décodage Swift (apple/180/NewsletterService.swift:113-124), PAS capturée : le proxy exige un JWT et le brief interdit tout appel newsletter live.",
+  "list_id": "a1b2c3d4e5",
+  "action": "status",
+  "status": "subscribed"
+}

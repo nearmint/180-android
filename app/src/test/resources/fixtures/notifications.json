@@ -1,0 +1,29 @@
+{
+  "_comment": "Fixture RÉELLE capturée en GET anonyme sur https://www.180c.fr/wp-json/180c/v1/notifications (LOT-13, Phase 0).",
+  "items": [
+    {
+      "id": 13400070,
+      "title": "Nems aux porcs et crevettes",
+      "body": "Quel plaisir de se concocter des nems maison en assemblant dans une farce délicieuse toutes les envies du moment et à décliner selon les saisons.",
+      "image_url": "https://www.180c.fr/wp-content/uploads/2026/03/©180°C-LesCahiersDeDelphine-NemsCrevettesPorc-1.webp",
+      "target": {
+        "type": "recipe",
+        "id": 13136868,
+        "url": "https://www.180c.fr/recettes/nems-aux-porc-et-crevettes/"
+      },
+      "sent_at": "2026-07-23T14:04:40Z"
+    },
+    {
+      "id": 13400067,
+      "title": "Test notif BO",
+      "body": "Ceci est une notification envoyée depuis le back-office",
+      "image_url": "https://www.180c.fr/wp-content/uploads/2026/07/©180°C-LesCahiersDeDelphine-FetaFouetteeCourgetteRotie-1.webp",
+      "target": {
+        "type": "recipe",
+        "id": 13400023,
+        "url": "https://www.180c.fr/recettes/feta-fouettee-et-courgettes-roties/"
+      },
+      "sent_at": "2026-07-23T09:40:43Z"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   Règles d'extraction — API 31 et au-delà.
+
+   Deux canaux distincts, et les deux doivent être couverts : `cloud-backup`
+   (sauvegarde Google) et `device-transfer` (copie directe vers un nouvel
+   appareil). Une exclusion posée sur le seul cloud laisserait le jeton passer
+   lors d'un changement de téléphone.
+
+   Justification détaillée : voir `backup_rules.xml`.
+-->
+<data-extraction-rules>
+    <cloud-backup>
+        <exclude domain="sharedpref" path="app180_keychain.xml" />
+        <exclude domain="sharedpref" path="app180_auth_legacy.xml" />
+        <exclude domain="sharedpref" path="app180_auth.xml" />
+        <!-- Carnet hors ligne : intégralement re-téléchargeable. -->
+        <exclude domain="file" path="offline_recipes" />
+    </cloud-backup>
+
+    <device-transfer>
+        <exclude domain="sharedpref" path="app180_keychain.xml" />
+        <exclude domain="sharedpref" path="app180_auth_legacy.xml" />
+        <exclude domain="sharedpref" path="app180_auth.xml" />
+        <!-- Carnet hors ligne : intégralement re-téléchargeable. -->
+        <exclude domain="file" path="offline_recipes" />
+    </device-transfer>
+</data-extraction-rules>

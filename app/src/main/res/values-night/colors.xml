@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Fond de la fenêtre de lancement — `DarkBackground` (`ui/theme/Color.kt`). -->
+    <color name="window_background">#000000</color>
+</resources>

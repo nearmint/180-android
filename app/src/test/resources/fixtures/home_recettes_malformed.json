@@ -1,0 +1,28 @@
+{
+  "_comment": "Copie de test dérivée de home_recettes.json, volontairement ALTÉRÉE : un bloc sans `type`, un élément non-objet, un bloc de type inconnu et un bloc `terms` partiellement invalide. Sert à prouver la tolérance par bloc (miroir FailableDecodable, apple/180/HomeService.swift:28-37).",
+  "page_id": 13136894,
+  "blocks": [
+    { "type": "featured", "anchor": null, "title": "", "recipe_ids": [13400072] },
+    { "anchor": null, "title": "Bloc sans type — doit être écarté" },
+    "chaine-au-lieu-d-un-objet",
+    { "type": "type_inconnu_du_futur", "title": "Bloc inconnu — décodé mais non rendu" },
+    {
+      "type": "rail",
+      "title": "Dernières recettes publiées",
+      "source": "recent",
+      "count": 3,
+      "view_all_url": "https://www.180c.fr/recettes/",
+      "recipe_ids": [13400023, 13400019, 13400018]
+    },
+    {
+      "type": "category_tiles",
+      "title": "Explorez les recettes",
+      "taxonomy": "recipe_category",
+      "terms": [
+        { "slug": "plat", "name": "Plat", "count": 681 },
+        { "name": "Tuile sans slug", "count": 3 },
+        { "slug": "dessert", "name": "Dessert", "count": 439 }
+      ]
+    }
+  ]
+}

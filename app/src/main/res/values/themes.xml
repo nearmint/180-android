@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--
+       Thème de la fenêtre de lancement, avant que Compose ne prenne la main.
+
+       Sans `windowBackground` déclaré, le système peint la fenêtre en blanc :
+       en mode sombre, l'utilisateur voit un flash blanc entre l'icône et le
+       splash. Le fond est donc fixé sur une couleur qui suit la configuration
+       (voir `values-night/`), miroir de `LightBackground` / `DarkBackground`
+       du thème Compose (`ui/theme/Color.kt:22`, `:43`).
+
+       Le parent reste une variante *sans barre d'action* : l'app dessine sa
+       propre barre supérieure en Compose.
+    -->
+    <style name="Theme._180c" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@color/window_background</item>
+        <item name="android:statusBarColor">@color/window_background</item>
+        <!-- Icônes de statut sombres sur fond clair. -->
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+</resources>

@@ -1,0 +1,7 @@
+{
+  "_comment": "Fixture DÉRIVÉE du décodage Swift (apple/180/AuthService.swift:410-424), PAS capturée : /180c/v1/me exige un JWT et les appels authentifiés sont interdits par le brief. Les clés reproduisent exactement les CodingKeys de MeResponse.",
+  "is_subscriber": true,
+  "email": "abonne@example.com",
+  "display_name": "Jean Dupont",
+  "id": 4242
+}

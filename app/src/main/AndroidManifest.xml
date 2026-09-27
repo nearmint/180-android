@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <!--
+       Lecture de l'état du réseau — requise par `NetworkMonitor` pour le
+       bandeau hors ligne et le gating des cycles de synchronisation du carnet.
+       Permission normale : accordée à l'installation, aucune demande runtime.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+        <!-- Android 13+ : la notification exige une permission runtime. -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <application
+        android:name=".App180Application"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:usesCleartextTraffic="false"
+        android:theme="@style/Theme._180c">
+        <!--
+           Portrait forcé, miroir de l'iOS : `apple/Config/Info.plist:44-56`
+           réduit `UISupportedInterfaceOrientations~iphone` **et** `~ipad` au
+           seul `UIInterfaceOrientationPortrait`, avec `UIRequiresFullScreen`.
+
+           Le verrou reste compatible avec les mises en page grandes largeurs
+           déjà écrites (`ui/layout/WindowSize.kt`, `navigation/AppNavigation.kt`,
+           `ui/screen/RecipeDetailScreen.kt`). D'une part une tablette 10" en
+           portrait mesure encore ~800 dp de large, donc `Medium` : le rail de
+           navigation et le détail en deux colonnes, tous deux conditionnés par
+           `isRegularWidth` (≥ 600 dp), restent atteignables. D'autre part, à
+           partir d'Android 16 et pour `targetSdk = 36`, le système **ignore**
+           les restrictions d'orientation sur les écrans ≥ 600 dp : le verrou ne
+           s'applique donc qu'au téléphone, et la tablette retrouve d'elle-même
+           ses quatre orientations, drawer permanent compris.
+
+           Les deux alertes que lint lève sur cet attribut sont supprimées ici
+           parce qu'elles décrivent exactement le compromis déjà tranché :
+           `LockedOrientationActivity` recommande `unspecified` pour le
+           multi-fenêtres, et `DiscouragedApi` rappelle que le verrou est ignoré
+           à partir d'Android 16 — c'est précisément ce qui rend ce choix
+           acceptable. Suppression ciblée sur cet élément, pour que `lintDebug`
+           continue de signaler les vraies régressions.
+        -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme._180c"
+            tools:ignore="LockedOrientationActivity,DiscouragedApi">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <!--
+               App Links : un permalien de recette ouvre la fiche dans l'app.
+
+               Seule la rubrique `/recettes/` est interceptée — c'est le seul
+               motif d'URL qui corresponde sans ambiguïté à un écran natif. Le
+               reste du site (boutique, articles, compte) continue de s'ouvrir
+               dans le navigateur, là où il fonctionne déjà.
+
+               `autoVerify` n'a d'effet qu'une fois publié sur
+               `https://www.180c.fr/.well-known/assetlinks.json` un fichier
+               déclarant cette app. Sans lui, Android présente le sélecteur
+               d'application au lieu d'ouvrir directement : le lien fonctionne,
+               mais sans le confort de la vérification.
+            -->
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:scheme="https"
+                    android:host="www.180c.fr"
+                    android:pathPrefix="/recettes/" />
+                <data
+                    android:scheme="https"
+                    android:host="180c.fr"
+                    android:pathPrefix="/recettes/" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
