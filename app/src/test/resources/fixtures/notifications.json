@@ -1,5 +1,5 @@
 {
-  "_comment": "Fixture RÉELLE capturée en GET anonyme sur https://www.180c.fr/wp-json/180c/v1/notifications (LOT-13, Phase 0).",
+  "_comment": "Fixture RÉELLE capturée en GET anonyme sur https://www.180c.fr/wp-json/180c/v1/notifications (Phase 0).",
   "items": [
     {
       "id": 13400070,

@@ -84,7 +84,7 @@ class NewsletterContractTest {
         // `list_id` volontairement OMIS : le serveur applique son audience unique
         // (NewsletterService.swift:32-37).
         assertFalse(json.contains("list_id"))
-        // Héritages INIT-89 sans équivalent iOS, supprimés.
+        // Héritages sans équivalent iOS, supprimés.
         assertFalse(json.contains("consent"))
         assertFalse(json.contains("source"))
         assertFalse(json.contains("lang"))

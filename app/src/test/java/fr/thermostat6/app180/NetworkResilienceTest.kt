@@ -58,7 +58,7 @@ class NetworkResilienceTest {
     }
 
     @Test
-    fun `le refus de redirection du LOT-01 n'est pas classe hors-ligne`() {
+    fun `le refus de redirection du lot dédié n'est pas classe hors-ligne`() {
         // Message produit par le garde-fou anti-redirection (ApiClient.kt).
         val guard = IOException(
             "Redirection inattendue (301) sur POST https://www.180c.fr/ → https://www.180c.fr/x."

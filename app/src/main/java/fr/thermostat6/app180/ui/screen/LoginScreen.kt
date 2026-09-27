@@ -182,7 +182,7 @@ fun LoginScreen(
             // Champs **remplis**, coins 12, avec un placeholder plutôt qu'un
             // libellé flottant : c'est la forme de l'iOS
             // (`apple/180/LoginView.swift:32-44`), et elle s'accorde au champ de
-            // recherche du LOT-10.
+            // recherche du lot dédié.
             TextField(
                 value         = username,
                 onValueChange = { username = it },

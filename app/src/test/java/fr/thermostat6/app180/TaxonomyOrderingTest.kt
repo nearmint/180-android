@@ -8,8 +8,7 @@ import org.junit.Assert.assertEquals
 import org.junit.Test
 
 /**
- * Ordres d'affichage des taxonomies, éprouvés sur les **fixtures réelles** du
- * LOT-04.
+ * Ordres d'affichage des taxonomies, éprouvés sur les **fixtures réelles**.
  *
  * Miroir d'`orderedSeasons` / du tri par `count`
  * (`apple/180/TaxonomyStore.swift:32-46`).

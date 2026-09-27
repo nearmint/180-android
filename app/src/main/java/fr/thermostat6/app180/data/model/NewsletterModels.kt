@@ -3,7 +3,7 @@ package fr.thermostat6.app180.data.model
 import com.google.gson.annotations.SerializedName
 
 /**
- * Contrat du proxy newsletter `180c/v1/newsletter/subscribe` (contrat apps INIT-87).
+ * Contrat du proxy newsletter `180c/v1/newsletter/subscribe` (contrat apps).
  *
  * La clé d'e-mailing ne quitte jamais le serveur : l'app envoie `{email, action}`
  * + Bearer JWT, le serveur vérifie que l'e-mail correspond au compte authentifié

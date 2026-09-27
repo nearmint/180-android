@@ -1,5 +1,5 @@
 {
-  "_comment": "Fixture RÉELLE capturée en GET anonyme sur https://www.180c.fr/wp-json/180c/v1/home-recettes (LOT-08, Phase 0). Le bloc `carnet` apparaît bien en anonyme mais sans données : son rail est hydraté côté app depuis FavoritesManager.",
+  "_comment": "Fixture RÉELLE capturée en GET anonyme sur https://www.180c.fr/wp-json/180c/v1/home-recettes (Phase 0). Le bloc `carnet` apparaît bien en anonyme mais sans données : son rail est hydraté côté app depuis FavoritesManager.",
   "page_id": 13136894,
   "blocks": [
     {

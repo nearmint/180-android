@@ -30,8 +30,8 @@ Six secrets, dans **Settings → Secrets and variables → Actions** du dépôt.
 |---|---|---|
 | `ANDROID_KEYSTORE_BASE64` | le `.jks` d'upload encodé en base64, sur une seule ligne | Release |
 | `ANDROID_KEYSTORE_PASSWORD` | mot de passe du keystore | Release |
-| `ANDROID_KEY_ALIAS` | `upload` | Release |
-| `ANDROID_KEY_PASSWORD` | mot de passe de la clé — **identique** au précédent (PKCS12 n'accepte pas deux mots de passe distincts) | Release |
+| `ANDROID_KEY_ALIAS` | alias de la clé d'upload dans le keystore | Release |
+| `ANDROID_KEY_PASSWORD` | mot de passe de la clé (en PKCS12, il doit être égal à celui du keystore) | Release |
 | `PLAY_SERVICE_ACCOUNT_JSON` | JSON d'un compte de service Google Cloud, collé tel quel, avec rôle *Release manager* dans la Play Console | Release |
 | `GOOGLE_SERVICES_JSON_BASE64` | `app/google-services.json` encodé en base64 | CI **et** Release |
 

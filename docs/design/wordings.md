@@ -1,6 +1,6 @@
 # Glossaire de wordings — iOS ↔ Android
 
-Extraction du 29/08/2026, LOT-10. Règle du SKILL `ui-parite-ios` : toute chaîne
+Extraction du 29/08/2026. Règle du SKILL `ui-parite-ios` : toute chaîne
 visible est **identique à l'iOS au caractère près** (ponctuation, points de
 suspension `…` en un seul caractère, espaces insécables). Seules exceptions
 admises : le vocabulaire imposé par la plateforme, documenté ci-dessous.
@@ -62,10 +62,10 @@ l'appel `.uppercase()`.** Les huit titres passés à `SettingsSection`
 | `…depuis les Réglages de votre téléphone.` | `…de votre iPhone.` | appareil de la plateforme (`NotificationsView.swift`) |
 | `Secouez votre téléphone pour découvrir une recette au hasard.` | `…votre iPhone…` | idem |
 
-## 5. Chaînes hors périmètre du LOT-10
+## 5. Chaînes hors périmètre du lot dédié
 
 Différences liées à des **écrans dont la structure diffère encore** — traitées
-au LOT-11, pas ici :
+au lot dédié, pas ici :
 
 - `Essayez « tomate » ou « tarte »` (`SearchScreen.kt:313`) — état initial de
   recherche propre à Android ; l'iOS n'a pas d'équivalent, il affiche
@@ -74,4 +74,4 @@ au LOT-11, pas ici :
   dont le découpage suit encore le contrat Android.
 - Écran d'onboarding (`Bienvenue sur 180°C`, `Ne ratez plus une recette`,
   `Des centaines de recettes françaises testées et approuvées.`) — la structure
-  iOS de `OnboardingView.swift` est reprise au LOT-11.
+  iOS de `OnboardingView.swift` est reprise au lot dédié.

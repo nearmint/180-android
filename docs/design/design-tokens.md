@@ -1,6 +1,6 @@
 # Tokens de design — correspondance iOS → Android
 
-Extraction du 29/08/2026, LOT-10. **Source de vérité : le code du dépôt
+Extraction du 29/08/2026. **Source de vérité : le code du dépôt
 iOS `nearmint/180-ios` (lecture seule).** Ce document est le contrat entre les
 valeurs iOS et les tokens `ui/theme/` ; aucune valeur ne doit exister ailleurs.
 
@@ -159,7 +159,7 @@ barre de navigation n'est surchargée** (aucune occurrence de
 donc rendus en **SF Bold**, la police système.
 
 Le SKILL (`ui-parite-ios`, « Rôles typographiques — non négociables ») et le
-cahier du LOT-10 (§5, étape 2) imposent tous deux **Oswald** pour les titres
+cahier des charges (§5, étape 2) imposent tous deux **Oswald** pour les titres
 d'écran. C'est la règle retenue : Oswald, pas Playfair (constat **C4**), et pas
 la police système. L'écart avec le rendu littéral de l'iOS est assumé — il
 porte sur la *famille*, jamais sur le poids ni la casse — et consigné ici comme

@@ -74,7 +74,7 @@ Toute chaîne visible doit être **identique à l'iOS au caractère près** — 
   demandé, là où `ContentScale.FillBounds` — qui déforme — reste interdit. Une case de DoD qui
   demande « aucun `ContentScale.Crop` » se lit donc « aucun `Crop` **ajouté**, aucune image
   déformée » : les occurrences qui reproduisent un `.clipped()` iOS sont conformes.
-  (Arbitrage produit, 29/08/2026, à la clôture du LOT-11.)
+  (Arbitrage produit, 29/08/2026, à la clôture du lot dédié.)
 - **Aucun lien, bouton ou parcours d'achat d'abonnement** (exception Google Play permanente). La « Boutique 180°C » est autorisée : c'est la boutique, pas l'abonnement.
 - Aucune valeur en dur (hex, `sp`, `dp` signifiants) hors `Color.kt` / `Type.kt` / `Dimens.kt`.
 

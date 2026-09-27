@@ -10,7 +10,7 @@ import org.junit.Test
  * Verrou sur les **templates de routes** et sur les routes concrètes qu'ils
  * engendrent.
  *
- * Le LOT-01 corrige deux crashs de même nature : une route demandée à un
+ * Le lot dédié corrige deux crashs de même nature : une route demandée à un
  * NavHost qui ne la déclare pas (`IllegalArgumentException`). Le graphe Compose
  * lui-même n'est pas atteignable depuis un test JVM pur — ni Robolectric ni
  * `androidx.navigation.testing` ne sont au classpath de `testDebugUnitTest`.

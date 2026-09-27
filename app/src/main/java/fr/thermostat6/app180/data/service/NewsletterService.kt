@@ -16,7 +16,7 @@ import java.util.Locale
  * `{email, action}` + Bearer JWT ; le serveur vérifie la correspondance avec le
  * compte authentifié puis relaie côté Mailchimp.
  *
- * Remplace l'implémentation INIT-89 (corps `{email, consent, source, lang}`,
+ * Remplace l'implémentation (corps `{email, consent, source, lang}`,
  * statut métier déduit du code HTTP) : le contrat réel porte le statut dans la
  * réponse et couvre les trois actions, pas seulement l'inscription.
  */

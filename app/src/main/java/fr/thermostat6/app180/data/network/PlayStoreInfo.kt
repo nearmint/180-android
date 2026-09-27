@@ -6,7 +6,7 @@ package fr.thermostat6.app180.data.network
  * Miroir d'`AppStoreInfo` (`apple/180/APIConfig.swift:103-122`) : tant que
  * l'application n'est pas publiée, les fonctions qui en dépendent — invitation
  * à mettre à jour, « Partager l'app », « Notez l'app »
- * (`ui/screen/AccountScreen.kt`, TODO LOT-18) — sont **masquées**, jamais
+ * (`ui/screen/AccountScreen.kt`, TODO) — sont **masquées**, jamais
  * pointées vers un lien factice.
  *
  * 👉 Renseigner [PACKAGE_NAME] à la publication.

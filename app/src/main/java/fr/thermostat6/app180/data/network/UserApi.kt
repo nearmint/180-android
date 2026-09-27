@@ -33,7 +33,7 @@ interface UserApi {
     suspend fun getHome(): HomePayload
 
     // 13 — Centre de notifications (feed serveur).
-    // Le flux est public : la capture anonyme du LOT-13 répond 200.
+    // Le flux est public : la capture anonyme du lot dédié répond 200.
     @GET("wp-json/180c/v1/notifications")
     suspend fun getNotifications(
         @Query("page")     page: Int = 1,

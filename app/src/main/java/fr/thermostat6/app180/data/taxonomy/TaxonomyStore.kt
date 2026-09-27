@@ -24,8 +24,8 @@ import kotlinx.coroutines.sync.withLock
  * plutôt que d'envoyer un ID faux, qui renverrait des résultats sans rapport.
  *
  * Miroir iOS : `apple/180/RecipeTaxonomyResolver.swift` + `TaxonomyStore.swift`.
- * Périmètre volontairement minimal (LOT-04) : le tri des listes, l'invalidation
- * et les dégradations d'UI relèvent du LOT-10.
+ * Périmètre volontairement minimal : le tri des listes, l'invalidation
+ * et les dégradations d'UI relèvent du lot dédié.
  */
 object TaxonomyStore {
 
@@ -71,7 +71,7 @@ object TaxonomyStore {
 
     /**
      * Charge saisons et types de plat si ce n'est pas déjà fait.
-     * L'ordre est celui renvoyé par l'API (le tri est arbitré au LOT-10).
+     * L'ordre est celui renvoyé par l'API (le tri est arbitré au lot dédié).
      */
     suspend fun loadIfNeeded() {
         slugMap(RecipeTaxonomy.SEASON)

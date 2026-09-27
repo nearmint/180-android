@@ -51,7 +51,7 @@ data class HomeUiState(
  *
  * L'état est la liste ordonnée des blocs de `180c/v1/home-recettes` : la
  * rédaction compose l'accueil depuis le back-office, sans nouvelle version
- * d'app. Les rails codés en dur posés en interim au LOT-04 (à la une tiré côté
+ * d'app. Les rails codés en dur posés en interim au lot dédié (à la une tiré côté
  * app, dernières recettes, saison courante, Cahiers de Delphine) ont disparu —
  * si le serveur veut un rail de ce type, il l'envoie.
  *
@@ -183,7 +183,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
      *
      * Réservé aux **abonnés** : `HomeView.swift:222` conditionne le rendu à
      * `auth.isSubscriber`, et `loadCarnet()` (`:563-576`) court-circuite l'appel
-     * pour tout autre visiteur. Les IDs viennent du carnet synchronisé du LOT-07,
+     * pour tout autre visiteur. Les IDs viennent du carnet synchronisé du lot dédié,
      * et l'ordre du carnet est préservé (`HomeView.swift:575`).
      *
      * L'échec est absorbé en liste vide : le rail disparaît, le reste de

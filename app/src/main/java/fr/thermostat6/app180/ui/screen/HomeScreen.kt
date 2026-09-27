@@ -230,7 +230,7 @@ fun HomeScreen(navController: NavController) {
                             )
                         },
                         // Lien public d'un rail → Custom Tab (remplace l'ouverture
-                        // externe posée au LOT-08).
+                        // externe posée au lot dédié).
                         onWebLink      = { url -> WebLauncher.openPublic(context, url, toolbarColor) }
                     )
                 }

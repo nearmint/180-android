@@ -126,7 +126,7 @@ fun ToastHost(modifier: Modifier = Modifier) {
 private fun ToastCard(data: ToastData) {
     // Teintes du thème, miroir de `ToastView.swift:21-27` (`.green`, `.red`,
     // `.accent180`). L'iOS colore l'icône sur un fond translucide ; le fond
-    // plein d'ici est un écart de structure, renvoyé au LOT-11.
+    // plein d'ici est un écart de structure, renvoyé au lot dédié.
     val (backgroundColor, icon) = when (data.type) {
         ToastType.SUCCESS -> Pair(MaterialTheme.app180.success,   Icons.Filled.CheckCircle)
         ToastType.ERROR   -> Pair(MaterialTheme.colorScheme.error, Icons.Filled.Warning)

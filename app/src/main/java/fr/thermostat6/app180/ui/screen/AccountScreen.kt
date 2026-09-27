@@ -372,7 +372,7 @@ private fun HelpSection(
                     )
             )
         }
-        // TODO(LOT-18) : « Partager l'app » et « Notez l'app », masqués tant que
+        // TODO : « Partager l'app » et « Notez l'app », masqués tant que
         // la fiche Play Store n'existe pas (miroir AppStoreInfo.isConfigured).
     }
 }

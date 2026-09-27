@@ -508,7 +508,7 @@ object AuthService {
     /**
      * Lit le statut abonné sur `GET /wp-json/180c/v1/me`, seule source faisant foi.
      *
-     * Remplace l'heuristique provisoire du LOT-04 (charger une recette et lire
+     * Remplace l'heuristique provisoire du lot dédié (charger une recette et lire
      * `!isLocked`) : celle-ci confondait « aucune recette premium dans le lot »
      * avec « utilisateur abonné », et dépendait de l'ordre du catalogue.
      *

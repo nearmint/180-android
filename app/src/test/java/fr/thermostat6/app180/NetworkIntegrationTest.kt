@@ -65,7 +65,7 @@ class NetworkIntegrationTest {
         .build()
         .create(WordPressApi::class.java)
 
-    // ── Garde-fou anti-redirection (LOT-01) ──────────────────────────────────
+    // ── Garde-fou anti-redirection ──────────────────────────────────
 
     @Test
     fun `une redirection sur POST est refusee, pas suivie`() {

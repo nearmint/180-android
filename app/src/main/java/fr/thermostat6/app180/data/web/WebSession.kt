@@ -187,7 +187,7 @@ object WebSession {
      * L'endpoint valide le jeton et répond `Set-Cookie`.
      *
      * On ne statue **pas** sur le code HTTP : l'endpoint termine par une
-     * redirection, et le garde-fou anti-redirection du LOT-01 la refuse — la
+     * redirection, et le garde-fou anti-redirection du lot dédié la refuse — la
      * réponse remonte donc en 3xx, ce qu'un test `== 200` prendrait à tort pour
      * un échec. À l'inverse, un 200 peut être une page d'erreur sans cookie.
      * **La présence du cookie de session est le seul critère fiable**

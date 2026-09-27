@@ -53,7 +53,7 @@ object FavoritesManager {
      *
      * Le suffixe de version est délibéré : la clé historique
      * [LEGACY_FAVORITE_IDS_KEY] contenait des IDs du modèle `posts`, rendus
-     * immappables par la migration vers le CPT `recipe` (LOT-04). Les pousser
+     * immappables par la migration vers le CPT `recipe`. Les pousser
      * vers `/favorites/sync` polluerait la table de production partagée avec
      * l'iOS et le site — ils sont donc purgés sans jamais être lus (§[purgeLegacyStoreIfNeeded]).
      */

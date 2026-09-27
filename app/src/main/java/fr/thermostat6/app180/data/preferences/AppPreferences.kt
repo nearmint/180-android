@@ -51,7 +51,7 @@ object AppPreferences {
     }
 
     // ── Newsletter ────────────────────────────────────────────────────────────
-    // Le proxy WP n'expose que l'inscription (INIT-89) : on mémorise localement si
+    // Le proxy WP n'expose que l'inscription : on mémorise localement si
     // l'utilisateur s'est inscrit depuis l'app, faute de pouvoir interroger Mailchimp.
 
     val newsletterSubscribed: Flow<Boolean>

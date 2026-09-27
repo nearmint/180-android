@@ -78,7 +78,7 @@ sealed class ApiError : Exception() {
          * Normalise n'importe quelle erreur réseau ou de décodage en [ApiError].
          * Miroir de `APIError.from(_:)` (`Networking.swift:129-145`).
          *
-         * La `IOException` levée par le garde-fou anti-redirection du LOT-01 se
+         * La `IOException` levée par le garde-fou anti-redirection du lot dédié se
          * classe en [ServerError], **pas** en [Offline] : elle n'est pas
          * transitoire et ne doit donc jamais être rejouée.
          */
@@ -94,7 +94,7 @@ sealed class ApiError : Exception() {
 
         /**
          * Une `IOException` couvre aussi bien une coupure réseau que le refus de
-         * redirection du LOT-01. On ne la classe hors-ligne que sur les causes de
+         * redirection du lot dédié. On ne la classe hors-ligne que sur les causes de
          * connectivité effectives, miroir de la liste `URLError` du Swift
          * (`Networking.swift:137-138` : `notConnectedToInternet`,
          * `networkConnectionLost`, `dataNotAllowed`, `cannotConnectToHost`,

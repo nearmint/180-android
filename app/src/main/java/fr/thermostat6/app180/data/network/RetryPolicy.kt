@@ -17,7 +17,7 @@ import kotlinx.coroutines.delay
  *   dupliquer son effet.
  * - **Erreurs transitoires uniquement** : hors-ligne, délai dépassé, 5xx.
  *   Un 4xx est un refus durable ([ApiError.isTransient]).
- * - **Jamais sur une redirection** : le garde-fou du LOT-01 lève une
+ * - **Jamais sur une redirection** : le garde-fou du lot dédié lève une
  *   `IOException` classée [ApiError.ServerError], non transitoire — l'erreur
  *   remonte donc dès le premier essai, comme voulu.
  */

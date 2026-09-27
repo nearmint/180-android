@@ -1,5 +1,5 @@
 {
-  "_comment": "Fixture RÉELLE capturée en GET anonyme sur https://www.180c.fr/wp-json/180c/v1/app-version (LOT-09, Phase 0).",
+  "_comment": "Fixture RÉELLE capturée en GET anonyme sur https://www.180c.fr/wp-json/180c/v1/app-version (Phase 0).",
   "ios": {
     "min": "1.0.0",
     "current": "1.0.0"

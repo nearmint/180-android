@@ -188,7 +188,7 @@ fun FavoritesScreen(navController: NavController) {
                 ) {
                     // Téléphone : **liste** de lignes séparées, comme l'iOS
                     // (`FavoritesView.swift:184-191`). La grille 2 colonnes
-                    // absorbée au LOT-05 est révoquée — elle ne subsiste que
+                    // absorbée au lot dédié est révoquée — elle ne subsiste que
                     // sur écran large, où l'iOS bascule lui aussi en grille
                     // (`FavoritesView.swift:175-183`).
                     if (isRegular) {

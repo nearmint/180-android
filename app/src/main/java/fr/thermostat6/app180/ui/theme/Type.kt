@@ -27,7 +27,7 @@ import fr.thermostat6.app180.R
  * Équivalent iOS : `AppFont.playfair(size, weight:)` (`Extensions.swift:74-83`).
  *
  * Jamais pour un titre d'écran, un titre de section ni un élément d'interface —
- * c'est l'inversion de rôles que le LOT-10 corrige.
+ * c'est l'inversion de rôles que le lot dédié corrige.
  *
  * Axe disponible : 400 → 900.
  */
@@ -209,7 +209,7 @@ val App180Typography = Typography(
  * `AccountView.swift:42`, `FavoritesView.swift:90`).
  *
  * On en reprend la **métrique** (34/41, bold) mais en **Oswald**, comme
- * l'imposent le SKILL `ui-parite-ios` et le LOT-10 : écart de famille assumé et
+ * l'imposent le SKILL `ui-parite-ios` et le lot dédié : écart de famille assumé et
  * documenté dans `docs/design/design-tokens.md` §2.4.
  */
 val ScreenTitle: TextStyle = TextStyle(

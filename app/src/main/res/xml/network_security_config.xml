@@ -7,7 +7,7 @@
    depuis l'API 28, mais le `minSdk` de l'app est 26 : sans cette déclaration,
    deux versions du système autoriseraient encore le clair.
 
-   Cohérent avec le socle du LOT-01 : l'origine canonique est
+   Cohérent avec le socle : l'origine canonique est
    `https://www.180c.fr` (`app/build.gradle.kts`, `API_ORIGIN`), et le client
    HTTP refuse de suivre les redirections. Aucune exception de développement
    n'est déclarée — il n'existe pas d'environnement local à joindre en clair.

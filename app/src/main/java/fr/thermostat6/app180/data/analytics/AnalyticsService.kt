@@ -225,7 +225,7 @@ object AnalyticsService {
      * **Sans appelant tant que la fiche Play n'existe pas** — ne pas retirer
      * comme code mort : les deux entrées « Noter l'app » et « Partager l'app »
      * de l'écran Compte attendent l'URL de la fiche
-     * (`TODO(LOT-18)`, `ui/screen/AccountScreen.kt`).
+     * (`TODO`, `ui/screen/AccountScreen.kt`).
      */
     fun rateAppClick() = sink.logEvent(AnalyticsEvents.RATE_APP_CLICK)
 
