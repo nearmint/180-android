@@ -35,9 +35,10 @@ Six secrets, dans **Settings → Secrets and variables → Actions** du dépôt.
 | `PLAY_SERVICE_ACCOUNT_JSON` | JSON d'un compte de service Google Cloud, collé tel quel, avec rôle *Release manager* dans la Play Console | Release |
 | `GOOGLE_SERVICES_JSON_BASE64` | `app/google-services.json` encodé en base64 | CI **et** Release |
 
-Deux **variables** de dépôt (non secrètes), facultatives : `CONTACT_EDITORIAL_EMAIL`
-et `CONTACT_SUPPORT_EMAIL`, adresses ouvertes par l'écran Compte. Absentes, le
-build retombe sur les adresses publiques du site.
+Deux secrets facultatifs : `CONTACT_EDITORIAL_EMAIL` et `CONTACT_SUPPORT_EMAIL`,
+adresses ouvertes par l'écran Compte. Ce sont des secrets et non des variables :
+une variable s'affiche en clair dans les logs du run, publics sur ce dépôt.
+Absents, le build retombe sur les adresses publiques du site.
 
 Le keystore, ses mots de passe et les commandes d'encodage vivent hors du dépôt,
 dans un dossier privé `android-secrets/`. **Aucun de ces éléments n'entre

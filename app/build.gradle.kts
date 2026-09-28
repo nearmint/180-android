@@ -44,7 +44,7 @@ android {
 
         // Adresses ouvertes par l'écran Compte (mailto « rédaction » / « support »).
         // Valeurs publiques par défaut ; surcharge par variable d'environnement
-        // (en CI : variables de dépôt GitHub, cf. .github/workflows/release.yml).
+        // (en CI : secrets de dépôt GitHub, cf. .github/workflows/release.yml).
         // Une surcharge change le BuildConfig : Gradle recompile en conséquence.
         val editorialEmail = providers.environmentVariable("CONTACT_EDITORIAL_EMAIL").orNull ?: "redaction@180c.fr"
         val supportEmail = providers.environmentVariable("CONTACT_SUPPORT_EMAIL").orNull ?: "contact@180c.fr"
