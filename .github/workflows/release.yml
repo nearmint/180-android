@@ -36,6 +36,15 @@ jobs:
       - name: Gradle
         uses: gradle/actions/setup-gradle@v4
 
+      # NDK de app/build.gradle.kts (ndkVersion) : sans lui, AGP saute en
+      # silence l'extraction des symboles natifs (debugSymbolLevel). No-op s'il
+      # est déjà dans l'image du runner.
+      - name: NDK
+        run: |
+          NDK_VERSION=$(sed -n 's/^ *ndkVersion = "\(.*\)"/\1/p' app/build.gradle.kts)
+          echo "NDK $NDK_VERSION"
+          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --install "ndk;$NDK_VERSION" > /dev/null
+
       # Même contrainte qu'en CI : sans ce fichier, le plugin Google Services
       # fait échouer le build. Cf. app/google-services.sample.json.
       - name: Restaurer google-services.json
