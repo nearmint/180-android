@@ -12,6 +12,10 @@ val keystorePath: String? = providers.environmentVariable("KEYSTORE_PATH").orNul
 
 android {
     namespace = "fr.thermostat6.app180"
+    // NDK épinglé sur la version par défaut d'AGP 9.1 : il ne compile rien (pas
+    // de code natif propre), il sert à extraire les symboles des .so tiers pour
+    // `native-debug-symbols.zip`. Le workflow Release l'installe explicitement.
+    ndkVersion = "28.2.13676358"
     compileSdk {
         version = release(36) {
             minorApiLevel = 1
@@ -72,6 +76,12 @@ android {
             // `findByName` et non `getByName` : null quand l'environnement de
             // signature est absent, ce qui laisse le variant non signé.
             signingConfig = signingConfigs.findByName("release")
+
+            // Symboles natifs joints au .aab (BUNDLE-METADATA) : Play symbolise les
+            // plantages natifs et cesse d'avertir « debug symbols not uploaded ».
+            ndk {
+                debugSymbolLevel = "FULL"
+            }
 
             // R8 : suppression du code et des ressources inutilisés, obfuscation.
             // Les règles de conservation vivent dans `proguard-rules.pro` — tout

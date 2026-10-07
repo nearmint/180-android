@@ -53,6 +53,7 @@ cp app/google-services.sample.json app/google-services.json   # or the real Fire
 
 - **CI** (`ci.yml`): lint, unit tests and debug build on `feat/**`, `fix/**`, `chore/**` and pull requests to `main`.
 - **Release** (`release.yml`): every push to `main` builds a signed `.aab` and uploads it to the Internal testing track. Promotion to production stays manual in the Play Console.
+- **Promote** (`promote.yml`, manual dispatch): moves an existing `versionCode` from one track to another (e.g. `internal` → `beta`) without sending it for review — review and publishing stay in the Play Console.
 
 Signing, secrets and upload-key rotation are documented in [`docs/release.md`](docs/release.md).
 

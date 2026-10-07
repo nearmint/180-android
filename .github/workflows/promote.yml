@@ -1,0 +1,54 @@
+# Promotion manuelle d'un bundle déjà publié d'une piste Play vers une autre
+# (typiquement internal → beta, c.-à-d. Open testing). Aucun build : on déplace
+# un versionCode existant. L'edit est commité sans envoi en revue — avec le
+# managed publishing, c'est la Play Console qui envoie en revue puis publie.
+name: Promote
+
+on:
+  workflow_dispatch:
+    inputs:
+      versionCode:
+        description: versionCode à promouvoir (doit déjà être sur la piste source)
+        required: true
+      sourceTrack:
+        description: Piste source
+        required: true
+        default: internal
+      targetTrack:
+        description: Piste cible (beta = Open testing)
+        required: true
+        default: beta
+
+# Jamais deux edits Play en parallèle sur l'app.
+concurrency:
+  group: play-edit
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  promote:
+    name: Promotion ${{ inputs.versionCode }} ${{ inputs.sourceTrack }} → ${{ inputs.targetTrack }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Dépendances
+        run: pip install --quiet google-auth requests
+
+      - name: Promotion via androidpublisher v3
+        env:
+          PLAY_SERVICE_ACCOUNT_JSON: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
+          PACKAGE_NAME: fr.thermostat6.app180
+          VERSION_CODE: ${{ inputs.versionCode }}
+          SOURCE_TRACK: ${{ inputs.sourceTrack }}
+          TARGET_TRACK: ${{ inputs.targetTrack }}
+        run: python .github/scripts/play_promote.py
