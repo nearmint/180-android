@@ -83,7 +83,6 @@ def main():
         f"{base}/{edit_id}/tracks/{target}",
         json={"track": target, "releases": [release]},
     )
-    call(session, "POST", f"{base}/{edit_id}:validate", params={"changesNotSentForReview": "true"})
     call(session, "POST", f"{base}/{edit_id}:commit", params={"changesNotSentForReview": "true"})
     print(f"Edit {edit_id} commité (changesNotSentForReview=true).")
 
