@@ -15,6 +15,16 @@
         <!-- Android 13+ : la notification exige une permission runtime. -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
+    <!--
+       Identifiant publicitaire : aucune publicité dans l'app, et la Play Console
+       déclare « Advertising ID : No ». La permission est pourtant injectée par
+       Firebase Analytics (play-services-measurement-impl / -api) : on la retire
+       du manifest fusionné, faute de quoi Play bloque l'envoi en revue.
+    -->
+    <uses-permission
+        android:name="com.google.android.gms.permission.AD_ID"
+        tools:node="remove" />
+
     <application
         android:name=".App180Application"
         android:allowBackup="true"
@@ -27,6 +37,11 @@
         android:supportsRtl="true"
         android:usesCleartextTraffic="false"
         android:theme="@style/Theme._180c">
+        <!-- Pendant côté SDK du retrait d'AD_ID : Analytics ne tente plus de lire l'ADID. -->
+        <meta-data
+            android:name="google_analytics_adid_collection_enabled"
+            android:value="false" />
+
         <!--
            Portrait forcé, miroir de l'iOS : `apple/Config/Info.plist:44-56`
            réduit `UISupportedInterfaceOrientations~iphone` **et** `~ipad` au
