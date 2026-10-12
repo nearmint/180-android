@@ -5,10 +5,10 @@
 1. **Push** sur `feat/**`, `fix/**`, `chore/**` ou **PR vers `main`** → workflow **CI** : `lint`, `testDebugUnitTest`, `assembleDebug`, APK debug en artifact (7 jours).
 2. **Push sur `main`** → workflow **Release** : keystore et `google-services.json` décodés depuis les secrets, `bundleRelease` signé avec `VERSION_CODE = github.run_number + 100`.
 3. Le `.aab` est archivé en artifact (30 jours) **avant** l'appel à Play : un échec d'upload n'oblige ni à rebuilder ni à brûler un `versionCode`.
-4. `r0adkll/upload-google-play` dépose le bundle sur la piste **Internal testing** en `status: completed` ; **Play App Signing** le resigne avec la clé d'application détenue par Google.
-5. Toute promotion **Internal → Ouvert → Production** reste **manuelle**, dans la Play Console : c'est une décision produit, pas une étape de build.
+4. `r0adkll/upload-google-play` dépose le bundle sur la piste **Production** en `status: draft` ; **Play App Signing** le resigne avec la clé d'application détenue par Google. Rien n'est publié ni envoyé en revue ; un nouveau push remplace le brouillon précédent.
+5. La mise en ligne reste **manuelle** : Play Console → **Test et versions → Production** → ouvrir le brouillon → **Vérifier la version** → **Lancer le déploiement**. C'est une décision produit, pas une étape de build.
 
-Les deux workflows tournent sur `ubuntu-latest`, JDK 17 temurin, cache Gradle via
+Les deux workflows tournent sur `ubuntu-24.04` (image figée), JDK 17 temurin, cache Gradle via
 `gradle/actions/setup-gradle`. `Release` est sérialisé (`concurrency: release`,
 sans annulation en vol).
 
