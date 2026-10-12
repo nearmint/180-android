@@ -101,7 +101,7 @@ jobs:
       # service, fiche non publiée), le bundle reste récupérable pour un dépôt
       # manuel, sans relancer un build ni brûler un versionCode.
       - name: Artifact — bundle release
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: app-release-${{ github.run_number }}
           path: app/build/outputs/bundle/release/app-release.aab
