@@ -25,20 +25,20 @@ permissions:
 jobs:
   build:
     name: Lint, tests unitaires, APK debug
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: JDK 17
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: '17'
 
       - name: Gradle
-        uses: gradle/actions/setup-gradle@v4
+        uses: gradle/actions/setup-gradle@v5
 
       # Le plugin com.google.gms.google-services fait échouer le build si le
       # fichier manque — c'est volontaire (cf. app/google-services.sample.json).
@@ -57,7 +57,7 @@ jobs:
         run: ./gradlew lint testDebugUnitTest assembleDebug
 
       - name: Artifact — APK debug
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: app-debug-${{ github.run_number }}
           path: app/build/outputs/apk/debug/app-debug.apk
@@ -68,7 +68,7 @@ jobs:
       # les rapports HTML/XML sont bien plus lisibles pour diagnostiquer.
       - name: Artifact — rapports (si échec)
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: rapports-${{ github.run_number }}
           path: |

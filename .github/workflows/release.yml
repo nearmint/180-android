@@ -1,7 +1,7 @@
 # Livraison : chaque push sur main produit un .aab signé et le dépose sur la
-# piste Internal testing de Google Play. Aucune promotion vers une piste
-# ouverte n'est automatisée — c'est une décision produit, elle se prend dans
-# la Play Console.
+# piste Production de Google Play, en BROUILLON. Rien n'est publié ni envoyé en
+# revue : la mise en ligne reste un geste manuel dans la Play Console
+# (Test et versions → Production → brouillon → Vérifier la version).
 name: Release
 
 on:
@@ -20,21 +20,22 @@ permissions:
 
 jobs:
   release:
-    name: Bundle signé et dépôt sur la piste Internal
-    runs-on: ubuntu-latest
+    name: Bundle signé et brouillon sur la piste Production
+    # Image figée : ubuntu-latest bascule sur Ubuntu 26 à partir du 19/10/2026.
+    runs-on: ubuntu-24.04
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: JDK 17
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: '17'
 
       - name: Gradle
-        uses: gradle/actions/setup-gradle@v4
+        uses: gradle/actions/setup-gradle@v5
 
       # NDK de app/build.gradle.kts (ndkVersion) : sans lui, AGP saute en
       # silence l'extraction des symboles natifs (debugSymbolLevel). No-op s'il
@@ -100,21 +101,25 @@ jobs:
       # service, fiche non publiée), le bundle reste récupérable pour un dépôt
       # manuel, sans relancer un build ni brûler un versionCode.
       - name: Artifact — bundle release
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: app-release-${{ github.run_number }}
           path: app/build/outputs/bundle/release/app-release.aab
           retention-days: 30
           if-no-files-found: error
 
-      - name: Dépôt sur la piste Internal testing
+      # status: draft — la release est créée sur Production sans être publiée
+      # ni envoyée en revue. La version en ligne reste servie tant que le
+      # brouillon n'est pas déployé depuis la Play Console. Un nouveau push
+      # remplace le brouillon précédent (une seule release draft par piste).
+      - name: Brouillon sur la piste Production
         uses: r0adkll/upload-google-play@v1
         with:
           serviceAccountJsonPlainText: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
           packageName: fr.thermostat6.app180
           releaseFiles: app/build/outputs/bundle/release/app-release.aab
-          track: internal
-          status: completed
+          tracks: production
+          status: draft
 
       # Le keystore disparaît avec le runner, mais un job qui échoue après le
       # décodage laisse le fichier le temps d'éventuelles étapes suivantes :
