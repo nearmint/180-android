@@ -57,7 +57,7 @@ jobs:
         run: ./gradlew lint testDebugUnitTest assembleDebug
 
       - name: Artifact — APK debug
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: app-debug-${{ github.run_number }}
           path: app/build/outputs/apk/debug/app-debug.apk
@@ -68,7 +68,7 @@ jobs:
       # les rapports HTML/XML sont bien plus lisibles pour diagnostiquer.
       - name: Artifact — rapports (si échec)
         if: failure()
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: rapports-${{ github.run_number }}
           path: |
